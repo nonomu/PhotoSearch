@@ -1,29 +1,17 @@
-import { observer } from 'mobx-react'
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import { observer} from 'mobx-react'
+import React, {useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
-@observer
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-        </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-        </a>
-        </header>
-      </div>
-    );
-  }
-}
-
-export default App;
+import Home from './components/Home'
+import Photos from './components/Photos'
+import NavBar from './components/NavBar'
+ const App =observer(() => {
+  return (
+    <Router>
+      <NavBar></NavBar>  
+      <Route exact path='/' component={Home} />
+      <Route exact path='/photos/:tags' render={({ match }) => <Photos tags={match.params.tags}/>}/>
+    </Router>
+  );
+})
+export default  App
