@@ -40,6 +40,8 @@ html {
   flex-grow:0;
   margin-left: 30px;
   margin-top: 20px;
+  margin-right: 3px;
+
 }
 .photoTag{
   width: 30vw;
