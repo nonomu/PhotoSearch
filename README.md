@@ -1,11 +1,11 @@
-# Reflix
+# Photo Search Engine
 
-Reflix is a movie detail/rent platform built with React. It includes movie inforamtion and adding to favorites.
-Full responsive design.
+photos search engine by user tags.
+
 ## Contributors
 - Noam Mualmi (nonomu)
 ## Table Of Contents
-- [Reflix](#reflix)
+- [Photo Search Engine](#Photo Search Engine)
   - [Contributors](#contributors)
   - [Table Of Contents](#table-of-contents)
   - [Running the project](#running-the-project)
