@@ -11,40 +11,37 @@ Full responsive design.
   - [Running the project](#running-the-project)
   - [Screenshots](#screenshots)
     - [Home](#home)
-    - [Movies](#Movies)
-    - [Login](#login)
-    - [Movie-Detailes](#Movie-Detailes)
+    - [HistorySearch](#HistorySearch)
+    - [RandomSearch](#RandomSearch)
+    - [PhotosByTags](#PhotosByTags)
 
   - [Tech-stack](#tech-stack)
 
 ## Running the project
 1. Clone the repo.
 2. Run `npm install`.
-3. Run `node server.js`.
-4. Run `Pg Admin`.
 5. Run `($env:REACT_APP_NOT_SECRET_CODE = 'YOURE_API_KEY_HERE') -and (npm start)` with youre google api key.
 6. Navigate to `http://localhost:3000`.
 
 ## Screenshots
 
 ### Home
-A short introduction to the platform. The user can choose his user to see his details.
+The user can add tags for search by tapping space and then click the search.
 <p align="center"><img src="assets/Home.PNG" width="300" /></p>
 
-### Movies
-All movies that user has Rented or available to rent. (each user has a budget)
-<p align="center"><img src="assets/catalog.PNG" width="300" /></p>
+### HistorySearch
+The user can see his 3 last search and add them to input by click and tap space.
+<p align="center"><img src="assets/HistoryInput.PNG" width="300" /></p>
 
-### Movie-Detailes
-Movie detail with a trailers
-<p align="center"><img src="assets/movieInfo.PNG" width="300" /></p>
+### RandomSearch
+The user can see Random pictures
+<p align="center"><img src="assets/Random.PNG" width="300" /></p>
 
-### Movie-trailer
-Movie trailer with close button
-<p align="center"><img src="assets/trailer.PNG" width="300" /></p>
+### PhotosByTags
+user can see the photos by his tags
+<p align="center"><img src="assets/NormalSearch.PNG" width="300" /></p>
 
 
 
 ## Tech-stack
-1. React, Material-UI, React-Icons, and Axios, Youtube Api.
-2. Express (Node.js), Sequelize (Postgress).
+1. React, Material-UI, React-Icons, and Axios, PixaBay Api
