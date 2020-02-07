@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useStores } from '../store/PhotoSearchEngine'
 import { observer } from 'mobx-react'
-
-
 import '../App.css'
 
 const Photos = observer((props) => {
@@ -17,6 +15,7 @@ const Photos = observer((props) => {
     body.backgroundRepeat = 'repeat'
     body.overflow = 'visible';
   }, [])
+  
   if (photoSearchEngine.photos.length === 0) return
   return (
     <div className="photos">

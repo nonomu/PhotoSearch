@@ -1,7 +1,9 @@
-import { observable, action, computed } from 'mobx'
+import { observable, action } from 'mobx'
 import React from 'react'
 import axios from 'axios'
-
+import dotenv from 'dotenv'
+dotenv.config()
+let APIKEY=process.env.REACT_APP_NOT_SECRET_CODE
 class PhotoSearchEngine {
   @observable photos = []
   @observable photosSearchHistory = []
@@ -11,7 +13,7 @@ class PhotoSearchEngine {
         this.getRandomPhotos()
         return
       }
-      let results = await axios.get(`https://pixabay.com/api/?key=14187346-8dbb41b91d19190e6af3c651f&q=${tags}&image_type=photo&per_page=200`)
+      let results = await axios.get(`https://pixabay.com/api/?key=${APIKEY}&q=${tags}&image_type=photo&per_page=200`)
       let photos = results.data.hits.map(p => { return { photoBasic: p.webformatURL, height: p.previewHeight, width: p.previewWidth, photoBig: p.largeImageURL } })
       this.photos = photos
       this.addToHistory(tags)
@@ -22,7 +24,7 @@ class PhotoSearchEngine {
   }
   @action getRandomPhotos = async () => {
     try {
-      let results = await axios.get(`https://pixabay.com/api/?key=14187346-8dbb41b91d19190e6af3c651f&image_type=photo&pretty=true&per_page=200`)
+      let results = await axios.get(`https://pixabay.com/api/?key=${APIKEY}&image_type=photo&pretty=true&per_page=200`)
       let photos = results.data.hits.map(p => { return { photoBasic: p.webformatURL, height: p.previewHeight, width: p.previewWidth, photoHD: p.largeImageURL } })
       this.photos = photos
     }
