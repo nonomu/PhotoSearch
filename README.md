@@ -20,7 +20,7 @@ photos search engine by user tags.
 ## Running the project
 1. Clone the repo.
 2. Run `npm install`.
-5. Run `($env:REACT_APP_NOT_SECRET_CODE = 'YOURE_API_KEY_HERE') -and (npm start)` with youre google api key.
+5. Run `($env:REACT_APP_NOT_SECRET_CODE = 'YOURE_API_KEY_HERE') -and (npm start)` with youre Pixabay api key.
 6. Navigate to `http://localhost:3000`.
 
 ## Screenshots
