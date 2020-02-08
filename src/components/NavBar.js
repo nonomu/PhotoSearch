@@ -28,6 +28,8 @@ export default function CenteredTabs(props) {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    console.log("Nav render")
+
     return (
         <Paper className={classes.root} >
             <Tabs

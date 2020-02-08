@@ -3,11 +3,12 @@ import React from 'react'
 import axios from 'axios'
 import dotenv from 'dotenv'
 dotenv.config()
-let APIKEY=process.env.REACT_APP_NOT_SECRET_CODE
+let APIKEY=process.env.REACT_APP_NOT_SECRET_CODE || "14187346-8dbb41b91d19190e6af3c651f"
 class PhotoSearchEngine {
   @observable photos = []
   @observable photosSearchHistory = []
   @action async getPhotos(tags) {
+    console.log(tags)
     try {
       if (tags === "random") {
         this.getRandomPhotos()

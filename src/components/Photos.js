@@ -6,17 +6,12 @@ import '../App.css'
 const Photos = observer((props) => {
   const { photoSearchEngine } = useStores()
   useEffect(() => {
-    async function fetchMyStoreData() {
-      await photoSearchEngine.getPhotos(props.tags)
-    }
-    fetchMyStoreData()
-    var body = document.body.style;
-    body.backgroundImage = `url("https://previews.123rf.com/images/irrrina/irrrina1406/irrrina140600285/29418973-background-from-white-coarse-canvas-texture-clean-background-no-dust-image-with-copy-space-and-light.jpg")`;
-    body.backgroundRepeat = 'repeat'
-    body.overflow = 'visible';
+    let searchTags=props.match.params.tags
+     photoSearchEngine.getPhotos(searchTags)
   }, [])
   
   if (photoSearchEngine.photos.length === 0) return
+  console.log("Photos render")
   return (
     <div className="photos">
       {photoSearchEngine.photos.map(ph => <div key={ph.photoBasic} className="photo">

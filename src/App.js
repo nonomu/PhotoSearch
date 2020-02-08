@@ -5,12 +5,14 @@ import './App.css';
 import Home from './components/Home'
 import Photos from './components/Photos'
 import NavBar from './components/NavBar'
+// import Perf from 'react-addons-perf'; 
  const App =observer(() => {
+   console.log("App render")
   return (
     <Router>
       <NavBar></NavBar>  
       <Route exact path='/' component={Home} />
-      <Route exact path='/photos/:tags' render={({ match }) => <Photos tags={match.params.tags}/>}/>
+      <Route exact path='/photos/:tags' component= {Photos} />
     </Router>
   );
 })

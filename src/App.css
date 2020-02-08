@@ -1,28 +1,43 @@
 .App {
   text-align: center;
 }
+html, body {
+  max-width: 100%;
+}
 body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
+  width: 100%;
   top: 0;
 }
 html {
-  height: 100%
+  height: 100%;
+  width: 100%;
 }
+.home{
+  height: 100vh;
+  background-image:url("https://cdnb.artstation.com/p/assets/images/images/006/897/659/large/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg?1502104559");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow-y: hidden;
+}
+.home-sentence{
+  display: flex;
+  margin-top: 100px;
+}
+
 .header{
   display: flex;
   justify-content: center;
   font-size: 6vw;
   color: rgb(197, 199, 201);
-  margin: auto;
-  margin-top: 100px;
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
 }
 .content{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: auto;
 }
@@ -30,18 +45,21 @@ html {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin:auto;
-  margin-top: 60px;
-  width: 100vw;
   justify-content: center;
+  background-image:url("https://previews.123rf.com/images/irrrina/irrrina1406/irrrina140600285/29418973-background-from-white-coarse-canvas-texture-clean-background-no-dust-image-with-copy-space-and-light.jpg");
+  background-size: 100% 100%;
+  margin-top: 50px;
+  overflow-x: hidden;
+
 }
+
 .photo{
   display: flex;
   flex-grow:0;
-  margin-left: 30px;
+  margin-left: 15px;
   margin-top: 20px;
-  margin-right: 3px;
-
+  margin-right: 5px;
+  margin-bottom: 20px;
 }
 .photoTag{
   width: 30vw;
@@ -53,14 +71,39 @@ html {
   .photoTag{
     width: 40vw;
   }
+  .home-sentence{
+    font-size: 30px;
+  }
 }
 @media only screen and (max-width: 400px) {
   .photoTag{
-    /* width: 80vw; */
     width: 80vw;
     margin-left: 0px;
     margin-right: 5px
   }
+  .home{
+    overflow-y: scroll;
+  }
+  .home-sentence{
+    font-size: 30px;
+  }
 }
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  background-color: #cac1c1;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #4046a5;
+  background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent);
+}
+
 
 
