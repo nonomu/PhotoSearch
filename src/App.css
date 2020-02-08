@@ -16,11 +16,11 @@ html {
   width: 100%;
 }
 .home{
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   background-image:url("https://cdnb.artstation.com/p/assets/images/images/006/897/659/large/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg?1502104559");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  overflow-y: hidden;
 }
 .home-sentence{
   display: flex;
@@ -76,14 +76,6 @@ html {
   }
 }
 @media only screen and (max-width: 400px) {
-  .photoTag{
-    width: 80vw;
-    margin-left: 0px;
-    margin-right: 5px
-  }
-  .home{
-    overflow-y: scroll;
-  }
   .home-sentence{
     font-size: 30px;
   }

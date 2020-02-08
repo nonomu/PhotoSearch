@@ -3,17 +3,16 @@ import React from 'react'
 import axios from 'axios'
 import dotenv from 'dotenv'
 dotenv.config()
-let APIKEY=process.env.REACT_APP_NOT_SECRET_CODE || "14187346-8dbb41b91d19190e6af3c651f"
+let APIKEY = process.env.REACT_APP_NOT_SECRET_CODE || "14187346-8dbb41b91d19190e6af3c651f"
 class PhotoSearchEngine {
   @observable photos = []
   @observable photosSearchHistory = []
   @action async getPhotos(tags) {
-    console.log(tags)
+    if (tags === "random") {
+      this.getRandomPhotos()
+      return
+    }
     try {
-      if (tags === "random") {
-        this.getRandomPhotos()
-        return
-      }
       let results = await axios.get(`https://pixabay.com/api/?key=${APIKEY}&q=${tags}&image_type=photo&per_page=200`)
       let photos = results.data.hits.map(p => { return { photoBasic: p.webformatURL, height: p.previewHeight, width: p.previewWidth, photoBig: p.largeImageURL } })
       this.photos = photos
@@ -26,7 +25,14 @@ class PhotoSearchEngine {
   @action getRandomPhotos = async () => {
     try {
       let results = await axios.get(`https://pixabay.com/api/?key=${APIKEY}&image_type=photo&pretty=true&per_page=200`)
-      let photos = results.data.hits.map(p => { return { photoBasic: p.webformatURL, height: p.previewHeight, width: p.previewWidth, photoHD: p.largeImageURL } })
+      let photos = results.data.hits.map(p => {
+        return {
+          photoBasic: p.webformatURL,
+          height: p.previewHeight,
+          width: p.previewWidth,
+          photoHD: p.largeImageURL
+        }
+      })
       this.photos = photos
     }
     catch (e) {
@@ -34,6 +40,8 @@ class PhotoSearchEngine {
     }
   }
   @action addToHistory = async (tags) => {
+    if (this.photosSearchHistory.findIndex(ph => ph === tags) >= 0)
+      return
     if (this.photosSearchHistory.length >= 3) {
       let tagsArray = [...this.photosSearchHistory]
       tagsArray.shift()
@@ -41,7 +49,6 @@ class PhotoSearchEngine {
     }
     else { this.photosSearchHistory = [...this.photosSearchHistory, tags] }
   }
-
 }
 
 const storesContext = React.createContext({

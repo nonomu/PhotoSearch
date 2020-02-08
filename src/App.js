@@ -10,7 +10,7 @@ import NavBar from './components/NavBar'
    console.log("App render")
   return (
     <Router>
-      <NavBar></NavBar>  
+      <NavBar/>  
       <Route exact path='/' component={Home} />
       <Route exact path='/photos/:tags' component= {Photos} />
     </Router>

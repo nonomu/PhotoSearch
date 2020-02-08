@@ -52,7 +52,7 @@ const TagsInput = observer((props) => {
 				placeholder="Add tags"
 			/>
 			<datalist id="RecentTags"  >
-				{photoSearchEngine.photosSearchHistory.map(pt => <option key={pt}>{pt.split('+').join(" ")}</option>)}
+				{photoSearchEngine.photosSearchHistory.map(pt => <option key={pt[0]+pt[1]}>{pt.split('+').join(" ")}</option>)}
 			</datalist>
 			<Link to={`/photos/${tags.join('+')}`}>
 				<IconButton aria-label="delete" size="medium">
