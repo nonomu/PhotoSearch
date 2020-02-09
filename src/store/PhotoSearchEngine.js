@@ -3,10 +3,12 @@ import React from 'react'
 import axios from 'axios'
 import dotenv from 'dotenv'
 dotenv.config()
-let APIKEY = process.env.REACT_APP_NOT_SECRET_CODE || "14187346-8dbb41b91d19190e6af3c651f"
+let APIKEY = process.env.REACT_APP_API_KEY
 class PhotoSearchEngine {
   @observable photos = []
   @observable photosSearchHistory = []
+  @observable foundPhotos = true;
+
   @action async getPhotos(tags) {
     if (tags === "random") {
       this.getRandomPhotos()
@@ -15,6 +17,13 @@ class PhotoSearchEngine {
     try {
       let results = await axios.get(`https://pixabay.com/api/?key=${APIKEY}&q=${tags}&image_type=photo&per_page=200`)
       let photos = results.data.hits.map(p => { return { photoBasic: p.webformatURL, height: p.previewHeight, width: p.previewWidth, photoBig: p.largeImageURL } })
+      if (photos.length === 0) {
+        this.foundPhotos = false
+        return
+      }
+      else {
+        this.foundPhotos = true
+      }
       this.photos = photos
       this.addToHistory(tags)
     }
@@ -48,6 +57,10 @@ class PhotoSearchEngine {
       this.photosSearchHistory = [...tagsArray, tags]
     }
     else { this.photosSearchHistory = [...this.photosSearchHistory, tags] }
+  }
+  @action resetSearch = () => {
+    this.photos = []
+    this.foundPhotos = true
   }
 }
 

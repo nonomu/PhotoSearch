@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import TagsInput from './TagsInput'
 import { observer } from 'mobx-react'
 
 const Home = observer(() => {
-  console.log("Home render")
   return (
     <div className="home">
       <div className="header">
-      <p className="home-sentence">Find Your Inspiration</p>
+        <p className="home-sentence">Find Your Inspiration</p>
       </div>
       <div className="content">
         <TagsInput tags={[]} />

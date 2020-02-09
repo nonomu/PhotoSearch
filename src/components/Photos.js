@@ -6,18 +6,21 @@ import '../App.css'
 const Photos = observer((props) => {
   const { photoSearchEngine } = useStores()
   useEffect(() => {
-    let searchTags=props.match.params.tags
-     photoSearchEngine.getPhotos(searchTags)
-  }, [])
-  
-  if (photoSearchEngine.photos.length === 0) return
-  console.log("Photos render")
+    let searchTags = props.match.params.tags || 'random'
+    photoSearchEngine.getPhotos(searchTags)
+    return function cleanup() {
+      photoSearchEngine.resetSearch()
+    };
+  }, [photoSearchEngine, props.match.params.tags])
   return (
-    <div className="photos">
-      {photoSearchEngine.photos.map(ph => <div key={ph.photoBasic} className="photo">
-        <img src={`${ph.photoBasic}`} className="photoTag" alt="Smiley face" />
-      </div>)}
-    </div>
+    (<div className="photos">
+      {photoSearchEngine.foundPhotos
+        ? photoSearchEngine.photos.map(ph =>
+          <div key={ph.photoBasic} className="photo">
+            <img src={`${ph.photoBasic}`} className="photoTag" alt="Smiley face" />
+          </div>)
+        : <div className="notFound"> No photos found</div>}
+    </div>)
   );
 })
 

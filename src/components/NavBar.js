@@ -5,7 +5,6 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { Link } from "react-router-dom";
 
-
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
@@ -14,7 +13,7 @@ const useStyles = makeStyles({
         zIndex: 20,
         position: "fixed",
         top: 0,
-        opacity:0.7,
+        opacity: 0.7,
     }
 });
 
@@ -23,13 +22,11 @@ export default function CenteredTabs(props) {
     const [value, setValue] = React.useState(0);
     const loggedTabs = [
         { name: 'Home', link: '/' },
-        { name: 'Random pictures', link: '/photos/random'}
+        { name: 'Random pictures', link: '/RandomPhotos' }
     ]
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    console.log("Nav render")
-
     return (
         <Paper className={classes.root} >
             <Tabs

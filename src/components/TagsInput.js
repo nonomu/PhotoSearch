@@ -10,19 +10,13 @@ const TagsInput = observer((props) => {
 	const { photoSearchEngine } = useStores()
 	const [tags, setTags] = React.useState(props.tags);
 	const removeTags = indexToRemove => {
-		console.log("remove tags")
-
 		setTags([...tags.filter((_, index) => index !== indexToRemove)]);
 	};
 	const addTags = event => {
-		console.log("add tags")
 		let value=event.target.value.split(' ')
-		if (value[0] !== "" ) {
-			if (value[value.length - 1] === "")
-				value.pop()
-			let tagsNew = [...tags, value[0]]
-			if(value[1]!=="")	
-			tagsNew=[...tags, ...value]
+		value=value.filter(v => v!=="")
+		if (value!== "" ) {	
+			let tagsNew=[...tags, ...value]
 			setTags([...tagsNew]);
 			event.target.value = "";
 		}
@@ -30,7 +24,6 @@ const TagsInput = observer((props) => {
 			event.target.value = null;
 		}
 	};
-	console.log("Tags render")
 	return (
 		<div className="tags-input">
 			<ul id="tags">
@@ -49,7 +42,7 @@ const TagsInput = observer((props) => {
 				type="text"
 				list="RecentTags"
 				onKeyUp={event => event.key === " " ? addTags(event) : null}
-				placeholder="Add tags"
+				placeholder="Search tags"
 			/>
 			<datalist id="RecentTags"  >
 				{photoSearchEngine.photosSearchHistory.map(pt => <option key={pt[0]+pt[1]}>{pt.split('+').join(" ")}</option>)}

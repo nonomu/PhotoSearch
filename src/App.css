@@ -1,15 +1,6 @@
-.App {
-  text-align: center;
-}
 html, body {
   max-width: 100%;
-}
-body {
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  height: 100%;
-  width: 100%;
-  top: 0;
+  max-height: 100%;
 }
 html {
   height: 100%;
@@ -17,10 +8,10 @@ html {
 }
 .home{
   height: 100%;
-  min-height: 100vh;
   background-image:url("https://cdnb.artstation.com/p/assets/images/images/006/897/659/large/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg?1502104559");
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  min-height: 100vh;
 }
 .home-sentence{
   display: flex;
@@ -47,10 +38,9 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   background-image:url("https://previews.123rf.com/images/irrrina/irrrina1406/irrrina140600285/29418973-background-from-white-coarse-canvas-texture-clean-background-no-dust-image-with-copy-space-and-light.jpg");
-  background-size: 100% 100%;
+  background-repeat: repeat;
   margin-top: 50px;
-  overflow-x: hidden;
-
+  min-height: 90vh;
 }
 
 .photo{
@@ -66,18 +56,28 @@ html {
   max-height: 40vh ;
   margin: auto;
 }
+.notFound{
+  display: flex;
+  font-size: 50px;
+  justify-content: center;
+  margin-top: 100px;
+  max-height: 80vh;
+}
 
 @media only screen and (max-width: 900px) {
   .photoTag{
     width: 40vw;
   }
   .home-sentence{
-    font-size: 30px;
+    font-size: 60px;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   .home-sentence{
     font-size: 30px;
+  }
+  .content{
+    margin-top: 120px;
   }
 }
 ::-webkit-scrollbar-track {
