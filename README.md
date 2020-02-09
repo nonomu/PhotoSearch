@@ -43,4 +43,4 @@ user can see the photos by his tags
 
 
 ## Tech-stack
-1. React, Material-UI, React-Icons, and Axios, PixaBay Api
+1. React-hooks , Mobx , Material-UI, React-Icons, and Axios, PixaBay Api
