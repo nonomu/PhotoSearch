@@ -18,7 +18,7 @@ photos search engine by user tags.
 ## Running the project
 1. Clone the repo.
 2. Run `npm install`.
-3. Create .env file in root of project with  `REACT_APP_API_KEY=YOURE_Pixabay_API_KEY_HERE`
+3. Navigate to .env file in root of project and insert PixaBay key in  `REACT_APP_API_KEY=YOURE_Pixabay_API_KEY_HERE`
 4. npm start.
 5. Navigate to `http://localhost:3000`.
 
